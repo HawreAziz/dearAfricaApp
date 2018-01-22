@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context="com.whatsup.hawre.whatsup.adapters.activities.GridViewActivity">
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gridView"
+        android:padding="2dp"
+        android:stretchMode="columnWidth"
+        android:columnWidth="150dp"
+        android:numColumns="auto_fit"
+         />
+</RelativeLayout>

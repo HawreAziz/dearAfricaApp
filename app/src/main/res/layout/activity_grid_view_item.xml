@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/item_layout"
+    android:gravity="center"
+
+    tools:context="com.whatsup.hawre.whatsup.items.GridViewItem">
+
+    <ImageView
+        android:id="@+id/gridViewImage"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/tick_image" />
+
+    <TextView
+        android:id="@+id/gridTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignLeft="@+id/gridViewImage"
+        android:layout_alignStart="@+id/gridViewImage"
+        android:layout_below="@+id/gridViewImage"
+        android:layout_marginTop="12dp"
+        android:text="@android:string/dialog_alert_title" />
+
+    <TextView
+        android:id="@+id/gridDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gridTitle"
+        android:layout_alignStart="@+id/gridTitle"
+        android:layout_below="@+id/gridTitle"
+        android:text="@android:string/fingerprint_icon_content_description" />
+
+    <TextView
+        android:id="@+id/gridTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/gridViewImage"
+        android:layout_alignRight="@+id/gridViewImage"
+        android:layout_below="@+id/gridDescription"
+        android:text="TextView" />
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    style="@style/AppTheme"
+    tools:context="com.whatsup.hawre.whatsup.items.ListViewRow">
+
+    <ImageView
+        android:id="@+id/listViewRowImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:scaleType="center"
+        android:src="@drawable/tick_image" />
+
+    <TextView
+        android:id="@+id/listViewRowTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listViewRowDesc"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/listViewRowDesc"
+        android:layout_gravity="center"
+        android:layout_marginTop="17dp"
+        android:gravity="center"
+        android:text="title"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/listViewRowDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listViewRowTitle"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/listViewRowImage"
+        android:layout_toRightOf="@+id/listViewRowImage"
+        android:gravity="center"
+        android:text="description"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/listViewRowTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/listViewRowDesc"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="time" />
+
+
+</RelativeLayout>

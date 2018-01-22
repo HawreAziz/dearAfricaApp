@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D1DE"
+    tools:context="com.whatsup.hawre.whatsup.adapters.activities.WheelMenuActivity">
+
+    <com.lukedeighton.wheelview.WheelView
+        android:id="@+id/wheelview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:emptyItemColor="@color/colorPrimary"
+        app:rotatableWheelDrawable="false"
+        app:wheelPosition="left"
+        app:repeatItems="true"
+        app:wheelColor="#c0c0c0 "
+        app:wheelItemRadius="70dp"
+        android:visibility="visible"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whatUpBackgroundColor"
+    tools:context="com.whatsup.hawre.whatsup.adapters.activities.TopicActivity">
+
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:id="@+id/whatsUpSlider"
+        android:background="@color/colorPrimaryDark" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/whatsUpSlider"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/whatsUpSlider"
+        android:ems="10"
+        android:hint="Type here"
+        android:inputType="textPersonName" />
+
+</RelativeLayout>
