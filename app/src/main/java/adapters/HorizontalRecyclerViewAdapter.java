@@ -13,6 +13,7 @@ import com.whatsup.hawre.whatsup.R;
 import java.util.List;
 
 import custom.classes.Topic;
+import listerners.TopicListener;
 
 import static android.support.v7.widget.RecyclerView.*;
 
@@ -24,10 +25,12 @@ public class HorizontalRecyclerViewAdapter extends Adapter<HorizontalRecyclerVie
 
     private List<Topic> topics;
     private Context context;
+    private TopicListener topicListener;
 
     public HorizontalRecyclerViewAdapter(Context context, List<Topic> topics) {
         this.topics = topics;
         this.context = context;
+        topicListener = new TopicListener();
     }
 
     @Override
@@ -44,6 +47,7 @@ public class HorizontalRecyclerViewAdapter extends Adapter<HorizontalRecyclerVie
         holder.description.setText(topic.getDescription());
         holder.time.setText(topic.getTime());
         holder.imageView.setImageResource(topic.getImageId());
+        topicListener.setOnItemClickListener(context, holder.itemView, topic.getTitle());
     }
 
 
@@ -56,14 +60,15 @@ public class HorizontalRecyclerViewAdapter extends Adapter<HorizontalRecyclerVie
         public TextView description;
         public TextView time;
         public ImageView imageView;
+        public View itemView;
 
         public CardViewHolder(View itemView) {
             super(itemView);
+            this.itemView = itemView;
             title = itemView.findViewById(R.id.hRecyclerViewTitle);
             description = itemView.findViewById(R.id.hDescription);
             time = itemView.findViewById(R.id.hRecyclerViewTime);
             imageView = itemView.findViewById(R.id.hRecyclerViewImage);
-
         }
     }
 

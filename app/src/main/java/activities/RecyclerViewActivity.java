@@ -28,7 +28,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         for(int i=0; i < 20; i++){
-            topics.add(new Topic("Title", "Description", "23:30", R.drawable.tick_image));
+            topics.add(new Topic("Title"+i, "Description", "23:30", R.drawable.tick_image));
         }
         recyclerView.setAdapter(new RecyclerViewAdapter(this, topics));
     }

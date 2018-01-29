@@ -16,7 +16,6 @@ import java.util.List;
 
 import adapters.InfinitViewAdapter;
 import custom.classes.Topic;
-import listerners.Listeners;
 
 public class InfinitViewActivity extends AppCompatActivity {
 

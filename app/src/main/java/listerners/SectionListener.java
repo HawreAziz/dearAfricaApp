@@ -14,11 +14,12 @@ import activities.InfinitViewActivity;
  * Created by hawre on 2018-01-22.
  */
 
-public class Listeners {
+public class SectionListener implements MyListener {
 
 
-    public static void setInfinitCycleViewListerner(final Context context,
-                                                    View view, final String title){
+
+    @Override
+    public void setOnItemClickListener(final Context context, View view, final String title) {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

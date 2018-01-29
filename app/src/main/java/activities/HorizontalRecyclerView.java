@@ -30,7 +30,7 @@ public class HorizontalRecyclerView extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         entries = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
-            entries.add(new Topic("Horizontal Topic",
+            entries.add(new Topic("Horizontal Topic"+i,
                     "Horizontal Description", "14:53",R.drawable.tick_image));
         }
         recyclerView.setAdapter(new HorizontalRecyclerViewAdapter(this, entries));
