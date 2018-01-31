@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WhatsUp</string>
+    <string name="facebookBtnText">SIGN IN WITH FACEBOOK</string>
+    <string name="emailBtnText">SIGN IN WITH EMAIL</string>
+    <string name="demoText">DEMO</string>
+    <string name="menuText">Swedish</string>
 </resources>

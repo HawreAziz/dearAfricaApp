@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WhatsUp</string>
+    <string name="facebookBtnText">LOGGA IN MED FACEBOOK</string>
+    <string name="demoText">DEMO</string>
+    <string name="emailBtnText">LOGGA IN MED EMAIL</string>
+    <string name="menuText">English</string>
+</resources>

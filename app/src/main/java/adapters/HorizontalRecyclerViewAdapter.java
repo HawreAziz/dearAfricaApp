@@ -55,6 +55,8 @@ public class HorizontalRecyclerViewAdapter extends Adapter<HorizontalRecyclerVie
     public int getItemCount() {
         return topics.size();
     }
+
+
     public class CardViewHolder extends ViewHolder{
         public TextView title;
         public TextView description;
