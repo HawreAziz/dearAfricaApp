@@ -15,6 +15,7 @@ import android.widget.Button;
 import java.util.Locale;
 
 import activities.HorizontalRecyclerView;
+import activities.ImageSliderView;
 import activities.InfinitViewActivity;
 import activities.MainMenuActivity;
 import utils.LocaleHelper;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         test_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, InfinitViewActivity.class);
+                Intent intent = new Intent(MainActivity.this, ImageSliderView.class);
                 startActivity(intent);
             }
         });

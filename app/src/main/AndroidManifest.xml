@@ -31,7 +31,8 @@
         <activity android:name="activities.HorizontalRecyclerView" />
         <activity android:name="items.HorizontalRecyclerViewItem" />
         <activity android:name="activities.InfinitViewActivity" />
-        <activity android:name="items.InfinitViewItem"></activity>
+        <activity android:name="items.InfinitViewItem" />
+        <activity android:name="activities.ImageSliderView"></activity>
     </application>
 
 </manifest>
