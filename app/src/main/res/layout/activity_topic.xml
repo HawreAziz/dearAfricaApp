@@ -25,7 +25,8 @@
         android:layout_height="50dp"
         android:layout_below="@id/whatsUpSlider"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         style="@style/Divider">
 
         <ImageButton
@@ -37,24 +38,28 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/like"
-            />
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp" />
 
         <EditText
             android:id="@+id/likeRate"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="20dp"
             android:text="20"
             android:focusableInTouchMode="false"
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
             android:background="#00000000"
-            android:textSize="18dp"
+            android:textSize="14dp"
             android:textStyle="normal"
-            android:layout_toRightOf="@+id/likeButton"/>
+            android:layout_toRightOf="@+id/likeButton"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            android:layout_toEndOf="@+id/likeButton" />
 
         <ImageButton
             android:id="@+id/unLikeButton"
@@ -68,7 +73,7 @@
             android:id="@+id/unLikeRate"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
             android:text="20"
@@ -77,49 +82,55 @@
             android:cursorVisible="false"
             android:focusable="false"
             android:background="#00000000"
-            android:textSize="18dp"
+            android:textSize="14dp"
             android:textStyle="normal"
-            android:layout_toRightOf="@+id/unLikeButton"/>
+            android:layout_toRightOf="@+id/unLikeButton"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp" />
 
-        <EditText
-            android:id="@+id/commentRate"
+        <ImageButton
+            android:id="@+id/shareIcon"
             android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="209"
-            android:focusableInTouchMode="false"
-            android:clickable="false"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:background="#00000000"
-            android:textSize="18dp"
-            android:textStyle="normal"
-            android:layout_toRightOf="@+id/unLikeRate"/>
+            android:layout_height="40dp"
+            android:layout_alignTop="@+id/likeButton"
+
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/unLikeRate"
+            android:layout_toRightOf="@+id/unLikeRate"
+            android:background="@drawable/share" />
+
 
         <EditText
+            android:id="@+id/shareText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/commentText"
-            android:layout_toRightOf="@+id/unLikeRate"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="15dp"
-            android:focusableInTouchMode="false"
+
+            android:layout_alignBaseline="@+id/unLikeRate"
+            android:layout_alignBottom="@+id/unLikeRate"
+            android:layout_toEndOf="@+id/shareIcon"
+            android:layout_toRightOf="@+id/shareIcon"
+            android:background="#00000000"
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
-            android:background="#00000000"
-            android:textSize="18dp"
+            android:focusableInTouchMode="false"
+            android:text="@string/shareText"
+            android:textSize="14dp"
             android:textStyle="normal" />
+
+
     </RelativeLayout>
 
 
 
     <RelativeLayout
+        android:id="@+id/commentAndShareBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/TopBar"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
         style="@style/Divider">
 
         <ImageButton
@@ -135,41 +146,73 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/doCommentText"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
             android:layout_toRightOf="@id/commentIcon"
             android:focusableInTouchMode="false"
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
+            android:textSize="14dp"
+            android:textStyle="normal"
             android:background="#00000000"
-            />
-
-        <ImageButton
-            android:id="@+id/shareIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@+id/commentText"
-            android:background="@drawable/share"/>
-
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/commentIcon" />
 
         <EditText
-            android:id="@+id/shareText"
+            android:id="@+id/commentRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/shareIcon"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@+id/shareIcon"
-            android:layout_toRightOf="@+id/shareIcon"
+            android:layout_alignBaseline="@+id/commentText"
+            android:layout_alignBottom="@+id/commentText"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/commentText"
+            android:layout_toRightOf="@+id/commentText"
             android:background="#00000000"
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:text="@string/shareText" />
+            android:text="1.8k"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/commentRate"
+            android:layout_alignBottom="@+id/commentRate"
+            android:layout_toEndOf="@+id/commentRate"
+            android:layout_toRightOf="@+id/commentRate"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#00000000"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="@string/commentText"
+            android:textSize="14dp"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/commentAndShareBar"
+        android:layout_margin="10dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/commentRecyclerView">
+
+        </android.support.v7.widget.RecyclerView>
 
     </RelativeLayout>
 
@@ -177,12 +220,20 @@
         android:id="@+id/commentBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="50dp"
         android:layout_alignLeft="@+id/whatsUpSlider"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/whatsUpSlider"
         android:ems="10"
+        android:padding="10dp"
         android:hint="@string/commentBoxText"
-        android:inputType="textPersonName" />
+        android:inputType="textMultiLine"
+        android:maxLines="4"
+        android:visibility="gone"
+        android:background="@drawable/comment_box_layout"
+        />
+
+
 
 
 </RelativeLayout>

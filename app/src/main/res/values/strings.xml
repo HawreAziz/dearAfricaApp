@@ -8,4 +8,6 @@
     <string name="commentText">Comments</string>
     <string name="doCommentText">Comment</string>
     <string name="shareText">Share</string>
+    <string name="likeText">Like</string>
+    <string name="answerText">Answer</string>
 </resources>

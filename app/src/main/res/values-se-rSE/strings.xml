@@ -9,4 +9,6 @@
     <string name="commentText">Kommentarer</string>
     <string name="doCommentText">Kommentera</string>
     <string name="shareText">Dela</string>
+    <string name="likeText">Gilla</string>
+    <string name="answerText">Svara</string>
 </resources>
