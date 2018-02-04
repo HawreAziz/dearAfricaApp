@@ -5,4 +5,8 @@
     <string name="demoText">DEMO</string>
     <string name="emailBtnText">LOGGA IN MED EMAIL</string>
     <string name="menuText">English</string>
+    <string name="commentBoxText">Skriv en kommentar</string>
+    <string name="commentText">Kommentarer</string>
+    <string name="doCommentText">Kommentera</string>
+    <string name="shareText">Dela</string>
 </resources>

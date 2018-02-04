@@ -4,4 +4,8 @@
     <string name="emailBtnText">SIGN IN WITH EMAIL</string>
     <string name="demoText">DEMO</string>
     <string name="menuText">Swedish</string>
+    <string name="commentBoxText">Type a comment</string>
+    <string name="commentText">Comments</string>
+    <string name="doCommentText">Comment</string>
+    <string name="shareText">Share</string>
 </resources>
