@@ -22,7 +22,6 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/head_profile"
-            android:background="@drawable/profile_image_layout"
             android:scaleType="centerCrop"
             />
 

@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import activities.ImageSliderView;
 import activities.InfinitViewActivity;
 import activities.MainMenuActivity;
 import utils.LocaleHelper;
+import utils.SharedConstants;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         facebook_button = findViewById(R.id.facebook_btn);
         email_button = findViewById(R.id.email_btn);
         test_btn = findViewById(R.id.test);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        SharedConstants.screen_width = display.getWidth();
+        SharedConstants.screen_height = display.getHeight();
         facebook_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

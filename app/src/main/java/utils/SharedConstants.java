@@ -6,4 +6,7 @@ package utils;
 
 public class SharedConstants {
 
+    public static int screen_width;
+    public static int screen_height;
+
 }
