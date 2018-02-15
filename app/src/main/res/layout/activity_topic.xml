@@ -1,15 +1,30 @@
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/scrollView"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/topLayout"
     android:background="@color/whatUpBackgroundColor"
     tools:context="com.whatsup.hawre.whatsup.adapters.activities.TopicActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:id="@+id/scrollableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
     <android.support.v4.view.ViewPager
@@ -209,7 +224,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/commentAndShareBar"
-        android:layout_margin="10dp">
+        android:id="@+id/commentListView">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -217,7 +232,16 @@
             android:id="@+id/commentRecyclerView"
             android:layout_marginBottom="50dp">
         </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
 
+    </RelativeLayout>
+    </ScrollView>
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
         <EditText
             android:id="@+id/commentBox"
             android:layout_width="wrap_content"
@@ -225,36 +249,33 @@
             android:minHeight="50dp"
             android:layout_alignParentBottom="true"
             android:padding="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:hint="@string/commentBoxText"
             android:inputType="textMultiLine"
             android:maxLines="4"
             android:background="@drawable/comment_box_layout"
             />
 
-        <android.support.v7.widget.CardView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:elevation="12dp"
-            app:cardCornerRadius="40dp"
-            android:shape="ring"
-            android:layout_marginBottom="10dp"
-            android:layout_below="@+id/commentRecyclerView"
-            android:layout_toRightOf="@+id/commentBox"
-            android:id="@+id/sendCardView"
-            android:visibility="gone">
+            <android.support.v7.widget.CardView
+                android:id="@+id/sendCardView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="11dp"
+                android:layout_marginStart="11dp"
+                android:layout_toEndOf="@+id/commentBox"
+                android:layout_toRightOf="@+id/commentBox"
+                android:background="@color/cardview_dark_background"
+                android:shape="ring"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="15dp">
 
-        <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/sendButton"
-            android:src="@drawable/sendbutton"
-            android:scaleType="centerCrop"
-            />
-    </android.support.v7.widget.CardView>
-
-
+                <ImageButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sendbutton" />
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
     </RelativeLayout>
-
-</RelativeLayout>
-</ScrollView>
