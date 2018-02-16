@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
@@ -53,7 +58,7 @@ public class TopicActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.whatsUpSlider);
         sendBtn = findViewById(R.id.sendButton);
-        final ImageButton commentBtn = findViewById(R.id.commentIcon);
+
         //TextView commentTextWidget = findViewById(R.id.commentText);
         //ImageButton shareBtn = findViewById(R.id.shareIcon);
         //shareTextWdiget = findViewById(R.id.shareText);
@@ -77,10 +82,13 @@ public class TopicActivity extends AppCompatActivity {
 
 
         scrollView.smoothScrollTo(0, 0);
-        //commentRecyclerView.setVisibility(View.INVISIBLE);
 
 
         commentBox.setWidth(SharedConstants.screen_width - 140);
+
+        sendBtn.setEnabled(false);
+        commentInput.clearFocus();
+
 
         commentList.setHasFixedSize(true);
         commentList.setLayoutManager(new LinearLayoutManager(this));
@@ -103,9 +111,90 @@ public class TopicActivity extends AppCompatActivity {
         new RateWidgetListener(unLikeBtn, unLikeRateView);
 
 
-        new DoCommentListener(this, doCommentText, commentInput, doCommentIcon, sendBtn,
-                                commentBoxHodlers, commentList, scrollView);
+
+        doCommentText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollDown();
+                commentInput.requestFocus();
+                showKeyboard();
+            }
+        });
+
+
+
+        commentInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showKeyboard();
+                commentInput.requestFocus();
+                scrollDown();
+            }
+        });
+
+
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                commentBoxHodlers.add(new CommentBoxHolder(R.drawable.head_profile, "Hawre Aziz", commentInput.getText().toString()));
+                commentList.getAdapter().notifyDataSetChanged();
+                commentInput.setText(null);
+                commentInput.clearFocus();
+                sendBtn.setEnabled(false);
+                scrollDown();
+                hideKeyboard();
+
+            }
+        });
+
+
+        doCommentIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollDown();
+                commentInput.requestFocus();
+                showKeyboard();
+            }
+        });
+
+        commentInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String text = commentInput.getText().toString().trim();
+                if(text.isEmpty()) {
+                    sendBtn.setEnabled(false);
+                } else
+                    sendBtn.setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
+
+
+    private void scrollDown(){
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
+    }
+
+    private void showKeyboard(){
+        InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        imm.showSoftInput(commentInput, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    private void hideKeyboard(){
+        InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(commentInput.getWindowToken(), 0);
+    }
+
 }
 
 
