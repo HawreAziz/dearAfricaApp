@@ -13,7 +13,7 @@
 
         <RelativeLayout
             android:id="@+id/infiniteLayout"
-            android:background="#dbdbff"
+            android:background="@drawable/button_rounded_corner"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
