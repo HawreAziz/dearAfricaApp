@@ -32,4 +32,5 @@ dependencies {
     compile 'com.github.devlight:infinitecycleviewpager:1.0.2'
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile "com.bakerj:infinite-cards:1.0.2"
+    implementation 'com.android.support:design:26.1.0'
 }

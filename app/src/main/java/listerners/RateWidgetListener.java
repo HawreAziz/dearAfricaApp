@@ -8,7 +8,7 @@ import android.widget.TextView;
  * Created by HawreAz on 2018-02-15.
  */
 
-public class RateWidgetListener {
+public class RateWidgetListener{
     private ImageButton imageButton;
     private TextView textView;
     private Boolean isClicked;
@@ -17,11 +17,13 @@ public class RateWidgetListener {
         this.imageButton = imageButton;
         this.textView = textView;
         isClicked = false;
-        setButtonListener();
+        setOnClickListener();
     }
 
 
-    private void setButtonListener(){
+
+
+    public void setOnClickListener() {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,8 +33,4 @@ public class RateWidgetListener {
             }
         });
     }
-
-
-
-
 }

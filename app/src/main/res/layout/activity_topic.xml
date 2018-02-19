@@ -21,6 +21,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+
     <RelativeLayout
         android:id="@+id/scrollableLayout"
         android:layout_width="match_parent"
@@ -277,5 +278,36 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/sendbutton" />
             </android.support.v7.widget.CardView>
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingUpArrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_above="@+id/sendCardView"
+                android:layout_alignEnd="@+id/sendCardView"
+                android:layout_alignRight="@+id/sendCardView"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="100dp"
+                android:visibility="gone"
+                android:clickable="true"
+
+                android:src="@drawable/profile_image_layout" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingDownArrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_above="@+id/sendCardView"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="50dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:clickable="true"
+                android:visibility="gone"
+                android:src="@drawable/profile_image_layout" />
+
         </RelativeLayout>
     </RelativeLayout>

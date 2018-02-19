@@ -1,5 +1,8 @@
 package activities;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -23,7 +25,7 @@ import java.util.List;
 import adapters.CommentListItemAdapter;
 import adapters.SliderViewAdapter;
 import custom.classes.CommentBoxHolder;
-import listerners.DoCommentListener;
+import listerners.FloatingButtonListener;
 import listerners.RateWidgetListener;
 import utils.SharedConstants;
 
@@ -48,10 +50,10 @@ public class TopicActivity extends AppCompatActivity {
 
 
 
-
     //for test purpose only, should be removed later when the real database is up
     private Integer[] images = {R.drawable.java, R.drawable.social_media, R.drawable.tick_image};
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
@@ -81,6 +83,9 @@ public class TopicActivity extends AppCompatActivity {
         scrollView = findViewById(R.id.scrollView);
 
 
+        FloatingActionButton upArrow = findViewById(R.id.floatingUpArrow);
+        FloatingActionButton downArrow = findViewById(R.id.floatingDownArrow);
+
         scrollView.smoothScrollTo(0, 0);
 
 
@@ -99,6 +104,9 @@ public class TopicActivity extends AppCompatActivity {
                     "Hawre Aziz", "This is comment number " + i));
         }
 
+
+
+        new FloatingButtonListener(upArrow, downArrow, scrollView);
 
 
         // set adapters
