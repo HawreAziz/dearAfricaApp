@@ -71,7 +71,7 @@ public class WheelMenuActivity extends AppCompatActivity {
 
                 String msg = buttonAdapter.getItem(position) + " was selected";
                 Toast.makeText(WheelMenuActivity.this, msg, Toast.LENGTH_LONG).show();
-                Intent welcome = new Intent(WheelMenuActivity.this, HorizontalRecyclerView.class);
+                Intent welcome = new Intent(WheelMenuActivity.this, HorizontalSectionList.class);
                 //welcome.putExtra("topic", buttonAdapter.getItem(position));
                 startActivity(welcome);
             }

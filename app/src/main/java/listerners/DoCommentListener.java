@@ -1,23 +1,14 @@
 package listerners;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
-import android.widget.QuickContactBadge;
 import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.whatsup.hawre.whatsup.R;
 
@@ -32,7 +23,7 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
  * Created by hawre on 2018-02-04.
  */
 
-public class DoCommentListener {
+public class DoCommentListener implements MyListener {
     private TopicActivity context;
     private EditText commentText;
     private ImageButton commentIcon;
@@ -45,7 +36,7 @@ public class DoCommentListener {
 
     public DoCommentListener(final Context context, final EditText commentText, final EditText commentInput,
                              final ImageButton commentIcon, final ImageButton sendButton, final List<CommentBoxHolder> comments,
-                             final RecyclerView commentList, ScrollView scrollView){
+                             final RecyclerView commentList, ScrollView scrollView) {
         this.context = (TopicActivity) context;
         focusable = false;
         this.commentList = commentList;
@@ -57,16 +48,54 @@ public class DoCommentListener {
         this.scrollView = scrollView;
         sendButton.setEnabled(false);
         commentInput.clearFocus();
+        setOnItemClickListener();
 
 
-        this.commentText.setOnClickListener(new View.OnClickListener() {
+    }
+
+
+    private void scrollDown(){
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
+    }
+
+    private void showKeyboard(){
+        InputMethodManager imm = (InputMethodManager)context.getSystemService(INPUT_METHOD_SERVICE);
+        imm.showSoftInput(commentInput, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    private void hideKeyboard(){
+        InputMethodManager imm = (InputMethodManager)context.getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(commentInput.getWindowToken(), 0);
+    }
+
+    @Override
+    public void setOnItemClickListener() {
+        commentText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //commentInput.setVisibility(View.VISIBLE);
+                scrollDown();
                 commentInput.requestFocus();
+                showKeyboard();
+            }
+        });
+
+
+
+        commentInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showKeyboard();
+                commentInput.requestFocus();
+                scrollDown();
 
             }
         });
+
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,17 +103,21 @@ public class DoCommentListener {
                 comments.add(new CommentBoxHolder(R.drawable.head_profile, "Hawre Aziz", commentInput.getText().toString()));
                 commentList.getAdapter().notifyDataSetChanged();
                 commentInput.setText(null);
-                commentInput.setFocusable(false);
+                commentInput.clearFocus();
                 sendButton.setEnabled(false);
+                hideKeyboard();
+                scrollDown();
+
             }
         });
 
-        this.commentIcon.setOnClickListener(new View.OnClickListener() {
+
+        commentIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //commentInput.setVisibility(View.VISIBLE);
+                scrollDown();
                 commentInput.requestFocus();
-
+                showKeyboard();
             }
         });
 
@@ -100,36 +133,9 @@ public class DoCommentListener {
                 } else
                     sendButton.setEnabled(true);
             }
+
             @Override
             public void afterTextChanged(Editable s) {}
-        });
-        onFocusChangeListener();
-    }
-
-
-
-    private void onFocusChangeListener(){
-        commentInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                commentInput.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        InputMethodManager imm = (InputMethodManager)context.getSystemService(INPUT_METHOD_SERVICE);
-                        if(commentInput.isFocusable()){
-                            imm.showSoftInput(commentInput, InputMethodManager.SHOW_IMPLICIT);
-                            scrollView.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    scrollView.fullScroll(ScrollView.FOCUS_DOWN);
-                                }
-                            });
-                        }else{
-                            imm.hideSoftInputFromWindow(commentInput.getWindowToken(), 0);
-                        }
-                    }
-                });
-            }
         });
     }
 }

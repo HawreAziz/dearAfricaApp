@@ -10,16 +10,17 @@ import android.widget.ScrollView;
  * Created by HawreAz on 2018-02-18.
  */
 
-public class FloatingButtonListener{
+public class FloatingButtonListener implements MyListener{
     private FloatingActionButton upArrow;
     private FloatingActionButton downArrow;
     private ScrollView scrollView;
 
-    public FloatingButtonListener(final FloatingActionButton upArrow, final FloatingActionButton downArrow, final ScrollView scrollView) {
+    public FloatingButtonListener(final FloatingActionButton upArrow,
+                                  final FloatingActionButton downArrow, final ScrollView scrollView) {
         this.upArrow = upArrow;
         this.downArrow = downArrow;
         this.scrollView = scrollView;
-        setOnClickListener();
+        setOnItemClickListener();
 
     }
 
@@ -36,7 +37,7 @@ public class FloatingButtonListener{
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    public void setOnClickListener() {
+    public void setOnItemClickListener() {
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -53,7 +54,7 @@ public class FloatingButtonListener{
                     showButton(upArrow);
                 }
 
-                if(diff <= 5){
+                if(diff <= 0){
                     hideButton(downArrow);
                 }
 

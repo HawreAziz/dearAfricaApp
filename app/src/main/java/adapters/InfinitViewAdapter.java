@@ -23,7 +23,7 @@ public class InfinitViewAdapter extends PagerAdapter {
     private List<Topic> images;
     private LayoutInflater layoutInflater;
     private Context context;
-    private SectionListener topicListener;
+    //private SectionListener topicListener;
 
     @Override
     public int getItemPosition(Object object) {
@@ -34,7 +34,7 @@ public class InfinitViewAdapter extends PagerAdapter {
         this.images = images;
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
-        topicListener = new SectionListener();
+        //topicListener = new SectionListener();
     }
 
 
@@ -69,7 +69,7 @@ public class InfinitViewAdapter extends PagerAdapter {
         description.setText(topic.getDescription());
         time.setText(topic.getTime());
 
-        topicListener.setOnItemClickListener(context, view, topic.getTitle());
+        new SectionListener(context, view, topic.getTitle());
         container.addView(view);
         return view;
     }

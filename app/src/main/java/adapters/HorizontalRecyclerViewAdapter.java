@@ -1,7 +1,6 @@
 package adapters;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,8 @@ import java.util.List;
 import custom.classes.Topic;
 import listerners.TopicListener;
 
-import static android.support.v7.widget.RecyclerView.*;
+import static android.support.v7.widget.RecyclerView.Adapter;
+import static android.support.v7.widget.RecyclerView.ViewHolder;
 
 /**
  * Created by hawre on 2018-01-17.
@@ -30,7 +30,7 @@ public class HorizontalRecyclerViewAdapter extends Adapter<HorizontalRecyclerVie
     public HorizontalRecyclerViewAdapter(Context context, List<Topic> topics) {
         this.topics = topics;
         this.context = context;
-        topicListener = new TopicListener();
+        //topicListener = new TopicListener();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class HorizontalRecyclerViewAdapter extends Adapter<HorizontalRecyclerVie
         holder.description.setText(topic.getDescription());
         holder.time.setText(topic.getTime());
         holder.imageView.setImageResource(topic.getImageId());
-        topicListener.setOnItemClickListener(context, holder.itemView, topic.getTitle());
+        new TopicListener(context, holder.itemView, topic.getTitle());
     }
 
 

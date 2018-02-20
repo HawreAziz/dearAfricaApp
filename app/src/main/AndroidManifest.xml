@@ -28,7 +28,7 @@
         <activity android:name="activities.MainMenuActivity" />
         <activity android:name="activities.RecyclerViewActivity" />
         <activity android:name="items.RecyclerViewItem" />
-        <activity android:name="activities.HorizontalRecyclerView" />
+        <activity android:name="activities.HorizontalSectionList" />
         <activity android:name="items.HorizontalRecyclerViewItem" />
         <activity android:name="activities.InfinitViewActivity" />
         <activity android:name="items.InfinitViewItem" />
