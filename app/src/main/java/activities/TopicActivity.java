@@ -32,7 +32,7 @@ public class TopicActivity extends AppCompatActivity {
 
 
     //for test purpose only, should be removed later when the real database is up
-    private Integer[] images = {R.drawable.java, R.drawable.social_media, R.drawable.tick_image};
+    private Integer[] images = {R.drawable.social_media, R.drawable.tick_image};
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +61,9 @@ public class TopicActivity extends AppCompatActivity {
         EditText commentInput = findViewById(R.id.commentBox);
         ScrollView scrollView = findViewById(R.id.scrollView);
         EditText commentBox = findViewById(R.id.commentBox);
-        RecyclerView commentRecyclerView = findViewById(R.id.commentRecyclerView);
         scrollView = findViewById(R.id.scrollView);
 
+        commentList.setNestedScrollingEnabled(false);
 
         FloatingActionButton upArrow = findViewById(R.id.floatingUpArrow);
         FloatingActionButton downArrow = findViewById(R.id.floatingDownArrow);
@@ -103,7 +103,7 @@ public class TopicActivity extends AppCompatActivity {
 
 
         new DoCommentListener(this, commentTextWidget, commentInput,
-                                doCommentIcon, sendBtn, commentBoxHodlers, commentList, scrollView);
+                               doCommentIcon, sendBtn, commentBoxHodlers, commentList, scrollView);
 
 
     }
