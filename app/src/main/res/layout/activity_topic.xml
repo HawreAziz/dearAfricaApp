@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/topLayout"
+    android:id="@+id/topicLayout"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     android:background="@color/whatUpBackgroundColor"
     tools:context="com.whatsup.hawre.whatsup.adapters.activities.TopicActivity">
 
@@ -252,6 +254,8 @@
             android:padding="10dp"
             android:layout_marginTop="0dp"
             android:hint="@string/commentBoxText"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:inputType="textMultiLine"
             android:maxLines="4"
             android:background="@drawable/comment_box_layout"
@@ -292,7 +296,6 @@
                 android:layout_marginBottom="100dp"
                 android:visibility="gone"
                 android:clickable="true"
-
                 android:src="@drawable/profile_image_layout" />
 
             <android.support.design.widget.FloatingActionButton

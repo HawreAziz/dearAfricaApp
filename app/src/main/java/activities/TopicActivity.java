@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
@@ -29,7 +31,7 @@ import utils.SharedConstants;
 public class TopicActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
-
+    private EditText commentInput;
 
     //for test purpose only, should be removed later when the real database is up
     private Integer[] images = {R.drawable.social_media, R.drawable.tick_image};
@@ -38,13 +40,14 @@ public class TopicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
-
         viewPager = findViewById(R.id.whatsUpSlider);
         ImageButton sendBtn = findViewById(R.id.sendButton);
+
 
         EditText commentTextWidget = findViewById(R.id.commentText);
         //ImageButton shareBtn = findViewById(R.id.shareIcon);
         //shareTextWdiget = findViewById(R.id.shareText);
+
 
 
 
@@ -58,7 +61,7 @@ public class TopicActivity extends AppCompatActivity {
         RecyclerView commentList = findViewById(R.id.commentRecyclerView);
         EditText doCommentText = findViewById(R.id.commentText);
         ImageButton doCommentIcon = findViewById(R.id.commentIcon);
-        EditText commentInput = findViewById(R.id.commentBox);
+        commentInput = findViewById(R.id.commentBox);
         ScrollView scrollView = findViewById(R.id.scrollView);
         EditText commentBox = findViewById(R.id.commentBox);
         scrollView = findViewById(R.id.scrollView);
@@ -104,8 +107,15 @@ public class TopicActivity extends AppCompatActivity {
 
         new DoCommentListener(this, commentTextWidget, commentInput,
                                doCommentIcon, sendBtn, commentBoxHodlers, commentList, scrollView);
+    }
 
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        commentInput.clearFocus();
+        return super.dispatchTouchEvent(ev);
     }
 }
 

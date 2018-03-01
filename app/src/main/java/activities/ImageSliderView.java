@@ -33,7 +33,7 @@ public class ImageSliderView extends AppCompatActivity {
         infiniteCardView.setTransformerToBack(new DefaultTransformerToBack());
         final List<Integer> images = new ArrayList<>();
         images.add(R.drawable.tick_image);
-        
+
         images.add(R.drawable.social_media);
         infiniteCardView.setAdapter(new ImageSliderAdaper(this, images, infiniteCardView));
         infiniteCardView.setClickable(true);

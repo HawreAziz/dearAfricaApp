@@ -11,4 +11,9 @@
     <string name="shareText">Dela</string>
     <string name="likeText">Gilla</string>
     <string name="answerText">Svara</string>
+    <string name="regUsernameText">Användername</string>
+    <string name="regEmailText">Email</string>
+    <string name="regPassText">Lösenord</string>
+    <string name="regConfirmPassText">Bekräfta lösenord</string>
+    <string name="regSubmitButton">Registrera</string>
 </resources>

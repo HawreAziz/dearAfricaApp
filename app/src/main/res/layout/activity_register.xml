@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.whatsup.hawre.whatsup.activities.RegisterActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:shape="ring"
+        app:cardCornerRadius="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+
+        >
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/head_profile"
+        />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/errorView"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="5dp"
+        android:textColor="#ff0000"
+        android:paddingLeft="5dp"
+        android:textSize="10dp"
+        android:text="error"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/regUsernameView"/>
+
+    <EditText
+        android:id="@+id/regUsernameView"
+        android:hint="@string/regUsernameText"
+        android:layout_width="match_parent"
+        android:textStyle="italic"
+        android:layout_height="40dp"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:inputType="text"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:background="@drawable/textfield_layout"
+        android:layout_marginLeft="40dp" />
+
+    <EditText
+        android:id="@+id/regEmailView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="@string/regEmailText"
+        android:layout_below="@id/regUsernameView"
+        android:textSize="20dp"
+        android:maxLines="1"
+        android:inputType="text"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:textStyle="italic"
+        android:layout_margin="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/textfield_layout"/>
+
+    <EditText
+        android:id="@+id/regPasswordView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:hint="@string/regPassText"
+        android:layout_below="@id/regEmailView"
+        android:textSize="20dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:textStyle="italic"
+        android:layout_margin="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/textfield_layout"/>
+
+    <EditText
+        android:id="@+id/regConfirmPassView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="@string/regConfirmPassText"
+        android:layout_below="@id/regPasswordView"
+        android:textSize="20dp"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:textStyle="italic"
+        android:layout_margin="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/textfield_layout" />
+
+    <Button
+        android:id="@+id/regButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/regConfirmPassView"
+        android:text="@string/regSubmitButton"
+        android:background="@drawable/textfield_layout"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

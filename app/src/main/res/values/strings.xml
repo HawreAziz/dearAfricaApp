@@ -10,4 +10,9 @@
     <string name="shareText">Share</string>
     <string name="likeText">Like</string>
     <string name="answerText">Answer</string>
+    <string name="regUsernameText">Username</string>
+    <string name="regEmailText">Email</string>
+    <string name="regPassText">Password</string>
+    <string name="regConfirmPassText">Confirm password</string>
+    <string name="regSubmitButton">Register</string>
 </resources>

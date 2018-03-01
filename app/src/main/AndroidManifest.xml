@@ -34,6 +34,7 @@
         <activity android:name="items.InfinitViewItem" />
         <activity android:name="activities.ImageSliderView" />
         <activity android:name="items.activity_comment_list_item"></activity>
+        <activity android:name="activities.RegisterActivity"></activity>
     </application>
 
 </manifest>
