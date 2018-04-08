@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 
 import com.whatsup.hawre.whatsup.R;
 
@@ -32,11 +31,10 @@ public class DoCommentListener implements MyListener {
     private boolean focusable;
     private RecyclerView commentList;
     private List<CommentBoxHolder> comments;
-    private  ScrollView scrollView;
 
     public DoCommentListener(final Context context, final EditText commentText, final EditText commentInput,
                             final ImageButton commentIcon, final ImageButton sendButton, final List<CommentBoxHolder> comments,
-                              final RecyclerView commentList, ScrollView scrollView) {
+                              final RecyclerView commentList) {
         this.context = (TopicActivity) context;
         focusable = false;
         this.commentList = commentList;
@@ -45,21 +43,19 @@ public class DoCommentListener implements MyListener {
         this.commentInput = commentInput;
         this.sendButton = sendButton;
         this.comments = comments;
-        this.scrollView = scrollView;
         sendButton.setEnabled(false);
         commentInput.clearFocus();
         setOnItemClickListener();
     }
 
 
-    private void scrollDown(){
+    /*private void scrollDown(){
         scrollView.post(new Runnable() {
             @Override
             public void run() {
-                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
             }
         });
-    }
+    }*/
 
     private void showKeyboard(){
         InputMethodManager imm = (InputMethodManager)context.getSystemService(INPUT_METHOD_SERVICE);
@@ -77,7 +73,6 @@ public class DoCommentListener implements MyListener {
             @Override
             public void onClick(View v) {
                 commentInput.requestFocus();
-                scrollDown();
                 showKeyboard();
             }
         });
@@ -87,7 +82,6 @@ public class DoCommentListener implements MyListener {
             @Override
             public void onClick(View view) {
                 commentInput.requestFocus();
-                scrollDown();
                 showKeyboard();
             }
         });
@@ -102,7 +96,8 @@ public class DoCommentListener implements MyListener {
                 commentInput.clearFocus();
                 sendButton.setEnabled(false);
                 hideKeyboard();
-                scrollDown();
+                commentList.scrollToPosition(commentList.getAdapter().getItemCount() -1);
+
             }
         });
 
@@ -111,7 +106,6 @@ public class DoCommentListener implements MyListener {
             @Override
             public void onClick(View v) {
                 commentInput.requestFocus();
-                scrollDown();
                 showKeyboard();
             }
         });
